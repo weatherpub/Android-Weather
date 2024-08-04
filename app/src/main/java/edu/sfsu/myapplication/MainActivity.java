@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -16,6 +17,7 @@ import androidx.navigation.ui.NavigationUI;
 import java.util.Objects;
 
 import edu.sfsu.myapplication.databinding.ActivityMainBinding;
+import edu.sfsu.myapplication.ui.dashboard.DashboardFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
         Objects.requireNonNull(getSupportActionBar()).hide();
 
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
