@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
             icon.setText(String.valueOf(data.get(0).getIcon()));
             code.setText(String.valueOf(data.get(0).getCode()));
             wind_mph.setText(String.valueOf(data.get(0).getWind_mph()));
-            gust_kph.setText(String.valueOf(data.get(0).getWind_kph()));
+            wind_kph.setText(String.valueOf(data.get(0).getWind_kph()));
             wind_degree.setText(String.valueOf(data.get(0).getWind_degree()));
             wind_dir.setText(data.get(0).getWind_dir());
             pressure_mb.setText(String.valueOf(data.get(0).getPressure_mb()));
@@ -96,6 +96,7 @@ public class HomeFragment extends Fragment {
             humidity.setText(String.valueOf(data.get(0).getHumidity()));
             cloud.setText(String.valueOf(data.get(0).getCloud()));
             feelslike_c.setText(String.valueOf(data.get(0).getFeelslike_c()));
+            feelslike_f.setText(String.valueOf(data.get(0).getFeelslike_f()));
             windchill_c.setText(String.valueOf(data.get(0).getWindchill_c()));
             windchill_f.setText(String.valueOf(data.get(0).getWindchill_f()));
             heatindex_c.setText(String.valueOf(data.get(0).getHeatindex_c()));
