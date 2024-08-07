@@ -10,8 +10,8 @@ public class CurrentModel {
     private final String name;
     private final String region;
     private final String country;
-    private final int lat;
-    private final int lon;
+    private final double lat;
+    private final double lon;
     private final String tz_id;
     private final int localtime_epoch;
     private final String localtime;
@@ -50,7 +50,7 @@ public class CurrentModel {
     private final int gust_mph;
     private final int gust_kph;
 
-    public CurrentModel(String name, String region, String country, int lat, int lon, String tz_id, int localtime_epoch, String localtime, int last_updated_epoch, String last_updated, int temp_c, int temp_f, int is_day, String text, String icon, int code, int wind_mph, int wind_kph, int wind_degree, String wind_dir, int pressure_mb, int pressure_in, int precip_mm, int precip_in, int humidity, int cloud, int feelslike_c, int feelslike_f, int windchill_c, int windchill_f, int heatindex_c, int heatindex_f, int dewpoint_c, int dewpoint_f, int vis_km, int vis_miles, int uv, int gust_mph, int gust_kph) {
+    public CurrentModel(String name, String region, String country, double lat, double lon, String tz_id, int localtime_epoch, String localtime, int last_updated_epoch, String last_updated, int temp_c, int temp_f, int is_day, String text, String icon, int code, int wind_mph, int wind_kph, int wind_degree, String wind_dir, int pressure_mb, int pressure_in, int precip_mm, int precip_in, int humidity, int cloud, int feelslike_c, int feelslike_f, int windchill_c, int windchill_f, int heatindex_c, int heatindex_f, int dewpoint_c, int dewpoint_f, int vis_km, int vis_miles, int uv, int gust_mph, int gust_kph) {
         this.name = name;
         this.region = region;
         this.country = country;
@@ -104,11 +104,11 @@ public class CurrentModel {
         return country;
     }
 
-    public int getLat() {
+    public double getLat() {
         return lat;
     }
 
-    public int getLon() {
+    public double getLon() {
         return lon;
     }
 

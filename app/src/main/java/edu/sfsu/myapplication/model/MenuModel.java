@@ -15,9 +15,9 @@ public class MenuModel extends ViewModel {
     public MenuModel(String current, String forecast, String history, String marine, String sports) {
         this.current = current;
         this.forecast = forecast;
-        History = history;
-        Marine = marine;
-        Sports = sports;
+        this.History = history;
+        this.Marine = marine;
+        this.Sports = sports;
     }
 
     public MenuModel(String current, String forecast, String history, String marine, String sports, @NonNull AutoCloseable... closeables) {

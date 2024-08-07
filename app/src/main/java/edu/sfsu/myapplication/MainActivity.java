@@ -1,14 +1,10 @@
 package edu.sfsu.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -17,7 +13,6 @@ import androidx.navigation.ui.NavigationUI;
 import java.util.Objects;
 
 import edu.sfsu.myapplication.databinding.ActivityMainBinding;
-import edu.sfsu.myapplication.ui.dashboard.DashboardFragment;
 
 public class MainActivity extends AppCompatActivity {
 

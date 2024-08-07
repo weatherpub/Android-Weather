@@ -1,6 +1,7 @@
 package edu.sfsu.myapplication.ui.home;
 
 import android.os.AsyncTask;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -8,6 +9,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import edu.sfsu.myapplication.model.CurrentModel;
+import edu.sfsu.myapplication.singleton.CurrentWeather;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -16,13 +18,14 @@ public class HomeViewModel extends ViewModel {
 
     private final MutableLiveData<ArrayList<CurrentModel>> data;
 
-    ArrayList<CurrentModel> cm;
+    // Singleton - Android Programming for Beginners [423]
+    public CurrentWeather currentWeather = CurrentWeather.getInstance();
+    public ArrayList<CurrentModel> model = currentWeather.getData();
+    public final String location = "sacramento";
 
     public HomeViewModel() {
         data = new MutableLiveData<>();
-        cm = new ArrayList<>();
-
-        new ViewModelAsyncTask().execute("https://api.weatherapi.com/v1/current.json?key=224a659c7414460899d10356232501&q=berkeley&aqi=no");
+        new ViewModelAsyncTask().execute("https://api.weatherapi.com/v1/current.json?key=224a659c7414460899d10356232501&q=" + location + "&aqi=no");
     }
 
     public LiveData<ArrayList<CurrentModel>> getWeatherData() {
@@ -55,12 +58,12 @@ public class HomeViewModel extends ViewModel {
             try {
                 JSONObject obj = new JSONObject(result);
 
-                cm.add(new CurrentModel(
+                model.add(new CurrentModel(
                         obj.getJSONObject("location").getString("name"),
                         obj.getJSONObject("location").getString("region"),
                         obj.getJSONObject("location").getString("country"),
-                        obj.getJSONObject("location").getInt("lat"),
-                        obj.getJSONObject("location").getInt("lon"),
+                        obj.getJSONObject("location").getDouble("lat"),
+                        obj.getJSONObject("location").getDouble("lon"),
                         obj.getJSONObject("location").getString("tz_id"),
                         obj.getJSONObject("location").getInt("localtime_epoch"),
                         obj.getJSONObject("location").getString("localtime"),
@@ -96,7 +99,7 @@ public class HomeViewModel extends ViewModel {
                         obj.getJSONObject("current").getInt("gust_mph"),
                         obj.getJSONObject("current").getInt("gust_kph")));
 
-                data.setValue(cm);
+                data.setValue(model);
 
             } catch (Exception e) {
                 throw new RuntimeException(e);

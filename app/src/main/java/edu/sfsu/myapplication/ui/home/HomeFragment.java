@@ -1,22 +1,20 @@
 package edu.sfsu.myapplication.ui.home;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import java.io.IOException;
+
+import com.squareup.picasso.Picasso;
 
 import edu.sfsu.myapplication.databinding.FragmentHomeBinding;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 public class HomeFragment extends Fragment {
 
@@ -42,7 +40,7 @@ public class HomeFragment extends Fragment {
         final TextView temp_f = binding.tvTempF;
         final TextView is_day = binding.tvIsDay;
         final TextView text = binding.tvText;
-        final TextView icon = binding.tvIcon;
+        final ImageView icon = binding.tvIcon;
         final TextView code = binding.tvCode;
         final TextView wind_mph = binding.tvWindMph;
         final TextView wind_kph = binding.tvWindKph;
@@ -83,7 +81,8 @@ public class HomeFragment extends Fragment {
             temp_f.setText(String.valueOf(data.get(0).getTemp_f()));
             is_day.setText(String.valueOf(data.get(0).getIs_day()));
             text.setText(String.valueOf(data.get(0).getText()));
-            icon.setText(String.valueOf(data.get(0).getIcon()));
+            // icon
+            Picasso.get().load(String.valueOf("https:" + data.get(0).getIcon())).into(icon);
             code.setText(String.valueOf(data.get(0).getCode()));
             wind_mph.setText(String.valueOf(data.get(0).getWind_mph()));
             wind_kph.setText(String.valueOf(data.get(0).getWind_kph()));
@@ -117,38 +116,5 @@ public class HomeFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-    }
-
-    public class AsyncTaskHomeFragment extends AsyncTask<String, Void, String> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Log.v("LOG", "onPreExecute() -> Running ");
-        }
-
-        @Override
-        protected String doInBackground(String... param) {
-            OkHttpClient client = new OkHttpClient();
-
-            Request request = new Request.Builder().url(param[0]).build();
-
-            try {
-                Response response = client.newCall(request).execute();
-
-                if(!response.isSuccessful())
-                    return null;
-
-                return response.body().string();
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-
-        }
     }
 }
