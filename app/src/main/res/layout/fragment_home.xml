@@ -104,14 +104,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="14sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tv_temp_f"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textSize="14sp" />
+            android:textFontWeight="@integer/material_motion_duration_medium_2"
+            android:textSize="50sp" />
 
         <TextView
             android:id="@+id/tv_is_day"
