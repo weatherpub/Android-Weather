@@ -78,11 +78,13 @@ public class HomeFragment extends Fragment {
             last_updated_epoch.setText(String.valueOf(data.get(0).getLast_updated_epoch()));
             last_updated.setText(String.valueOf(data.get(0).getLast_updated()));
             temp_c.setText(String.valueOf(data.get(0).getTemp_c()));
+
             temp_f.setText(String.valueOf(data.get(0).getTemp_f()));
-            is_day.setText(String.valueOf(data.get(0).getIs_day()));
-            text.setText(String.valueOf(data.get(0).getText()));
             // icon
             Picasso.get().load(String.valueOf("https:" + data.get(0).getIcon())).into(icon);
+            text.setText(String.valueOf(data.get(0).getText()));
+
+            is_day.setText(String.valueOf(data.get(0).getIs_day()));
             code.setText(String.valueOf(data.get(0).getCode()));
             wind_mph.setText(String.valueOf(data.get(0).getWind_mph()));
             wind_kph.setText(String.valueOf(data.get(0).getWind_kph()));

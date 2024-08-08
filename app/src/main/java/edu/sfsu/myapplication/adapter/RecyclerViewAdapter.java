@@ -41,7 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         View itemView = holder.itemView;
         MenuModel item = menuModel.get(position);
-        holder.category.setText(String.format("%s", item.getCurrent()));
+        holder.category.setText(String.format("%s", item.getItem()));
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -39,7 +39,11 @@ public class DashboardFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        menuModel.add(new MenuModel("Current", "Forecast", "History", "Marine", "Sports"));
+        menuModel.add(new MenuModel("Current"));
+        menuModel.add(new MenuModel("Forecast"));
+        menuModel.add(new MenuModel("History"));
+        menuModel.add(new MenuModel("Marine"));
+        menuModel.add(new MenuModel("Sports"));
 
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(menuModel);
 
