@@ -62,7 +62,7 @@ public class ItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(PlaceholderContent.placeholderItem));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(PlaceholderContent.getPlaceholderItemItems()));
         }
         return view;
     }
